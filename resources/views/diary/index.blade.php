@@ -99,12 +99,14 @@
                     <div class="max-w-md leading-loose tracking-tight">
                         <h1 class="font-bold my-12">日記の一覧</h1>
                         <p class="font-bold my-4">楽しかったできごと</p>
-                        <ul class="flex flex-wrap justify-between flex-row md:flex-col">
-                            <li><a href="#" class="nav mx-2 md:mx-0">1.洗濯物がすぐ乾いた</a></li>
-                            <li><a href="#" class="nav mx-2 md:mx-0">2.今日も、ちゃんと出勤できた。</a></li>
-                            <li><a href="#" class="nav mx-2 md:mx-0">3.連絡を取っていなかった友達に連絡ができた。</a></li>
-                        </ul>
+                        @foreach($diaries as $dairy)
+                        <h2 class="text-2xl font-medium  title-font mb-2">{{Carbon\Carbon::parse($dairy->date)->format('Y年n月j日')}}</h2>
+                        <p class="leading-relaxed">1. {{Str::limit($dairy->note, 100,$end='...')}}</p>
+                        <p class="leading-relaxed">2. {{Str::limit($dairy->note01, 100,$end='...')}}</p>
+                        <p class="leading-relaxed">3. {{Str::limit($dairy->note02, 100,$end='...')}}</p>
+                        @endforeach
                     </div>
+                    {{ $diaries->links() }}
                 </div>
 
                 <!-- <div class="w-full md:w-1/2 md:pr-32 pt-12 md:pt-0 md:sticky md:bottom-0 order-4 md:order-3">
