@@ -76,7 +76,7 @@
     </head>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('ポジティブ日記') }}
         </h2>
     </x-slot>
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -85,7 +85,7 @@
 
             <div class="p-6 sm:p-10 md:p-16 flex flex-wrap">
 
-                <div class="w-full md:w-1/2 md:pr-32 order-3 md:order-1">
+                <div class="w-full md:w-1/2 md:pr-32 order-1 md:order-1">
                     <div class="max-w-md md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 ">
                         <p class="font-bold my-4 md:my-12">日記を書く</p>
                         <p class="font-bold my-4 md:my-12">キーワード検索</p>
@@ -95,15 +95,19 @@
                         <a href="#" class="normal font-bold hover:font-bold">more...</a> -->
                     </div>
                 </div>
-                <div class="w-full md:w-1/2 order-1 md:order-2">
-                    <div class="max-w-md leading-loose tracking-tight">
+                <div class="w-full md:w-1/2 order-3 md:order-2">
+                    <!-- <div class="max-w-md leading-loose tracking-tight"> -->
+                    <div class="leading-loose tracking-tight">
                         <h1 class="font-bold my-12">日記の一覧</h1>
                         <p class="font-bold my-4">楽しかったできごと</p>
-                        @foreach($diaries as $dairy)
-                        <h2 class="text-2xl font-medium  title-font mb-2">{{Carbon\Carbon::parse($dairy->date)->format('Y年n月j日')}}</h2>
-                        <p class="leading-relaxed">1. {{Str::limit($dairy->note, 100,$end='...')}}</p>
-                        <p class="leading-relaxed">2. {{Str::limit($dairy->note01, 100,$end='...')}}</p>
-                        <p class="leading-relaxed">3. {{Str::limit($dairy->note02, 100,$end='...')}}</p>
+                        @foreach($diaries as $diary)
+                        <h2 class="text-2xl font-medium  title-font mb-2">{{Carbon\Carbon::parse($diary->date)->format('Y年n月j日')}}</h2>
+                        <p class="leading-relaxed">1. {{Str::limit($diary->note, 100,$end='...')}}</p>
+                        <p class="leading-relaxed">2. {{Str::limit($diary->note01, 100,$end='...')}}</p>
+                        <p class="leading-relaxed">3. {{Str::limit($diary->note02, 100,$end='...')}}</p>
+                        <div class="text-right">
+                            <button onclick="location.href='/diary/detail/{{$diary->id }}'" class="text-sm shadow bg-gray-500 hover:bg-gray-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">詳細</button>
+                        </div>
                         @endforeach
                     </div>
                     {{ $diaries->links() }}
