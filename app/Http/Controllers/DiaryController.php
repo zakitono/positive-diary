@@ -14,4 +14,11 @@ class DiaryController extends Controller
 
         return view('diary.index', ['diaries' => $diaries]);
     }
+
+    public function detail($id)
+    {
+        $diary = Diary::find($id);
+
+        return view('diary.detail', ['diary' => $diary]);
+    }
 }

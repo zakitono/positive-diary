@@ -31,6 +31,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth'])->prefix('diary')->group(function () {
     Route::get('/', [DiaryController::class, 'index'])->name('diary');
+    Route::get('/detail/{id}', [DiaryController::class, 'detail'])->name('diary.detail');
 });
 
 require __DIR__ . '/auth.php';
