@@ -83,7 +83,7 @@
 
         <body class="bg-gray-100 text-gray-700 font-sans quicksand">
 
-            <div class="p-6 sm:p-10 md:p-16 flex flex-wrap">
+            <div class="p-6 sm:p-10 md:p-16">
                 <div>
                     <div class="px-4 sm:px-0">
                         <h3 class="text-base font-semibold leading-7 text-gray-900">詳細</h3>
@@ -107,6 +107,10 @@
                                 <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{Str::limit($diary->note02, 100,$end='...')}}</dd>
                             </div>
                         </dl>
+                    </div>
+                    <div class="flex justify-end">
+                        <button onclick="history.back()" class="mt-3 mr-4 shadow bg-gray-500 hover:bg-gray-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">{{ __('戻る') }}</button>
+                        <button onclick="location.href='/diary/edit/{{ $diary->id }}'" class="mt-3 mr-2 shadow bg-yellow-500 hover:bg-yellow-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">変更する</button>
                     </div>
                 </div>
 
