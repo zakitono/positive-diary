@@ -9,6 +9,13 @@ class Diary extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'date',
+        'note',
+        'note01',
+        'note02',
+    ];
+
     // id
 
     /**
