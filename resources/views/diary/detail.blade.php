@@ -108,9 +108,16 @@
                             </div>
                         </dl>
                     </div>
-                    <div class="flex justify-end">
+                    <div class="flex justify-center" relative>
                         <button onclick="history.back()" class="mt-3 mr-4 shadow bg-gray-500 hover:bg-gray-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">{{ __('戻る') }}</button>
                         <button onclick="location.href='/diary/edit/{{ $diary->id }}'" class="mt-3 mr-2 shadow bg-yellow-500 hover:bg-yellow-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">変更する</button>
+                    </div>
+                    <div class="flex justify-end mt-6">
+                        <form action="/diary/remove/{{ $diary->id }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button type="submit" class="mt-4 mr-4 shadow bg-red-500 hover:bg-red-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">削除</button>
+                        </form>
                     </div>
                 </div>
 
