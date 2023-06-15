@@ -48,4 +48,31 @@ class DiaryController extends Controller
             return redirect('diary')->withErrors($ex->getMessage());
         }
     }
+
+    public function new()
+    {
+        return view('diary.new');
+    }
+
+    public function create(Request $request)
+    {
+        try {
+            Diary::create($request->all());
+            return redirect('diary')->with('status', '日記を登録しました');
+        } catch (\Exception $ex) {
+            logger($ex->getMessage());
+            return redirect('diary')->withErrors($ex->getMessage());
+        }
+    }
+
+    public function remove($id)
+    {
+        try {
+            Diary::find($id)->delete();
+            return redirect('diary')->with('status', '日記を削除しました。');
+        } catch (\Exception $ex) {
+            logger($ex->getMessage());
+            return redirect('diary')->withErrors($ex->getMessage());
+        }
+    }
 }
