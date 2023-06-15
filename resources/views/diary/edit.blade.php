@@ -108,8 +108,7 @@
                                     <dt class="text-sm font-medium leading-6 text-gray-900">楽しかったこと①</dt>
                                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
                                         <div class="mt-1">
-                                            <textarea id="note" name="note" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{ $diary->note }}
-                                            </textarea>
+                                            <textarea id="note" name="note" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md">{{ $diary->note }}</textarea>
                                         </div>
                                     </dd>
                                 </div>
