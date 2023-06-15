@@ -79,6 +79,11 @@
             {{ __('ポジティブ日記') }}
         </h2>
     </x-slot>
+
+    @if(session('status'))
+    <x-ui.flash-message message="{{ session('status') }}"></x-ui.flash-message>
+    @endif
+
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
         <body class="bg-gray-100 text-gray-700 font-sans quicksand">
@@ -87,7 +92,8 @@
 
                 <div class="w-full md:w-1/2 md:pr-32 order-1 md:order-1">
                     <div class="max-w-md md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 ">
-                        <p class="font-bold my-4 md:my-12">日記を書く</p>
+                        <button onclick="location.href='/diary/new/'" class="text-base shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded my-4 md:my-12">日記を書く</button>
+                        <!-- <p class="font-bold my-4 md:my-12">日記を書く</p> -->
                         <p class="font-bold my-4 md:my-12">キーワード検索</p>
                         <!-- <ul class="flex flex-wrap justify-between flex-col">
                             <li><a href="#" class="nav">日記を書く</a></li>
