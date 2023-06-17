@@ -101,6 +101,9 @@
                                         <div class="mt-2">
                                             <input type="text" name="date" id="date" value="" placeholder="例) 2023-04-1" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
                                         </div>
+                                        @error('date')
+                                        <div class="text-red-600">{{ $message }}</div>
+                                        @enderror
                                     </dd>
                                 </div>
                                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -109,6 +112,9 @@
                                         <div class="mt-1">
                                             <textarea id="note" name="note" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"></textarea>
                                         </div>
+                                        @error('note')
+                                        <div class="text-red-600">{{ $message }}</div>
+                                        @enderror
                                     </dd>
                                 </div>
                                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -117,6 +123,9 @@
                                         <div class="mt-1">
                                             <textarea id="note01" name="note01" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"></textarea>
                                         </div>
+                                        @error('note01')
+                                        <div class="text-red-600">{{ $message }}</div>
+                                        @enderror
                                     </dd>
                                 </div>
                                 <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -125,6 +134,9 @@
                                         <div class="mt-1">
                                             <textarea id="note02" name="note02" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"></textarea>
                                         </div>
+                                        @error('note02')
+                                        <div class="text-red-600">{{ $message }}</div>
+                                        @enderror
                                     </dd>
                                 </div>
                             </dl>

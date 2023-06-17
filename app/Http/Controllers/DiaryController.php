@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Diary;
+use App\Http\Requests\DiaryRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class DiaryController extends Controller
 {
@@ -30,7 +32,7 @@ class DiaryController extends Controller
         return view('diary.edit', ['diary' => $diary]);
     }
 
-    public function update(Request $request)
+    public function update(DiaryRequest $request)
     {
         try {
             DB::beginTransaction();
@@ -57,6 +59,17 @@ class DiaryController extends Controller
     public function create(Request $request)
     {
         try {
+            $validated = Validator::make($request->all(), [
+                'date' => 'required|date',
+                'note' => 'max: 255',
+                'note01' => 'max: 255',
+                'note02' => 'max: 255',
+            ]);
+
+            if ($validated->fails()) {
+                return redirect()->route('diary.new', ['id' => $request->input('id')])->withErrors($validated)->withInput();
+            }
+
             Diary::create($request->all());
             return redirect('diary')->with('status', '日記を登録しました');
         } catch (\Exception $ex) {
