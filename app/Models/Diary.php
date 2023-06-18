@@ -29,4 +29,15 @@ class Diary extends Model
      * cover_image: 画像の登録
      *
      */
+
+    public function scopeSearch($query, $search)
+    {
+        $note = $search['note'] ?? '';
+
+        $query->when($note, function ($query, $note) {
+            $query->where('note', 'like', "%$note%")->orWhere('note01', 'like', "%$note%")->orWhere('note02', 'like', "%$note%");
+        });
+
+        return $query;
+    }
 }

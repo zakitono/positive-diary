@@ -10,12 +10,24 @@ use Illuminate\Support\Facades\Validator;
 
 class DiaryController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $diaries = Diary::paginate(5);
-        // $diaries = Diary::all();
+        // $diaries = Diary::paginate(5);
+        // // $diaries = Diary::all();
+        // return view('diary.index', ['diaries' => $diaries]);
 
-        return view('diary.index', ['diaries' => $diaries]);
+        $input = $request->only('note', 'note01', 'note02');
+        $diaries = Diary::search($input)->orderBy('id', 'desc')->paginate(10);
+
+        return view(
+            'diary.index',
+            [
+                'diaries' => $diaries,
+
+                // 検索する値
+                'note' => $input['note'] ?? '',
+            ]
+        );
     }
 
     public function detail($id)
