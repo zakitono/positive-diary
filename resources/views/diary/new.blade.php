@@ -110,7 +110,7 @@
                                     <dt class="text-sm font-medium leading-6 text-gray-900">楽しかったこと①</dt>
                                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
                                         <div class="mt-1">
-                                            <textarea id="note" name="note" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md px-2"></textarea>
+                                            <textarea id="note" name="note" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md p-2"></textarea>
                                         </div>
                                         @error('note')
                                         <div class="text-red-600">{{ $message }}</div>
@@ -121,7 +121,7 @@
                                     <dt class="text-sm font-medium leading-6 text-gray-900">楽しかったこと②</dt>
                                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
                                         <div class="mt-1">
-                                            <textarea id="note01" name="note01" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md px-2"></textarea>
+                                            <textarea id="note01" name="note01" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md p-2"></textarea>
                                         </div>
                                         @error('note01')
                                         <div class="text-red-600">{{ $message }}</div>
@@ -132,7 +132,7 @@
                                     <dt class="text-sm font-medium leading-6 text-gray-900"> 楽しかったこと③</dt>
                                     <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
                                         <div class="mt-1">
-                                            <textarea id="note02" name="note02" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md px-2"></textarea>
+                                            <textarea id="note02" name="note02" rows="3" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md p-2"></textarea>
                                         </div>
                                         @error('note02')
                                         <div class="text-red-600">{{ $message }}</div>
