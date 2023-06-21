@@ -84,43 +84,40 @@
         <body class="bg-gray-100 text-gray-700 font-sans quicksand">
 
             <div class="p-6 sm:p-10 md:p-16">
-                <div>
-                    <div class="px-4 sm:px-0">
-                        <h3 class="text-base font-semibold leading-7 text-gray-900">詳細</h3>
-                    </div>
-                    <div class="mt-6 border-t border-gray-100">
-                        <dl class="divide-y divide-gray-100">
-                            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                <dt class="text-sm font-medium leading-6 text-gray-900">日付</dt>
-                                <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{Carbon\Carbon::parse($diary->date)->format('Y年n月j日')}}</dd>
-                            </div>
-                            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                <dt class="text-sm font-medium leading-6 text-gray-900">楽しかったこと①</dt>
-                                <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{Str::limit($diary->note, 100,$end='...')}}</dd>
-                            </div>
-                            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                <dt class="text-sm font-medium leading-6 text-gray-900">楽しかったこと②</dt>
-                                <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{Str::limit($diary->note01, 100,$end='...')}}</dd>
-                            </div>
-                            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-                                <dt class="text-sm font-medium leading-6 text-gray-900"> 楽しかったこと③</dt>
-                                <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{Str::limit($diary->note02, 100,$end='...')}}</dd>
-                            </div>
-                        </dl>
-                    </div>
-                    <div class="flex justify-center" relative>
-                        <button onclick="history.back()" class="mt-3 mr-4 shadow bg-gray-500 hover:bg-gray-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">{{ __('戻る') }}</button>
-                        <button onclick="location.href='/diary/edit/{{ $diary->id }}'" class="mt-3 mr-2 shadow bg-yellow-500 hover:bg-yellow-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">変更する</button>
-                    </div>
-                    <div class="flex justify-end mt-6">
-                        <form action="/diary/remove/{{ $diary->id }}" method="POST">
-                            @csrf
-                            @method('delete')
-                            <button type="submit" class="mt-4 mr-4 shadow bg-red-500 hover:bg-red-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">削除</button>
-                        </form>
-                    </div>
+                <div class="px-4 sm:px-0">
+                    <h3 class="text-base font-semibold leading-7 text-gray-900">詳細</h3>
                 </div>
-
+                <div class="mt-6 border-t border-gray-100">
+                    <dl class="divide-y divide-gray-100">
+                        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                            <dt class="font-medium leading-6 text-gray-900 font-bold">日付</dt>
+                            <dd class="mt-1 leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{Carbon\Carbon::parse($diary->date)->format('Y年n月j日')}}</dd>
+                        </div>
+                        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                            <dt class="font-medium leading-6 text-gray-900 font-bold">楽しかったこと①</dt>
+                            <dd class="mt-1 leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{Str::limit($diary->note, 100,$end='...')}}</dd>
+                        </div>
+                        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                            <dt class="font-medium leading-6 text-gray-900 font-bold">楽しかったこと②</dt>
+                            <dd class="mt-1 leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{Str::limit($diary->note01, 100,$end='...')}}</dd>
+                        </div>
+                        <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                            <dt class="font-medium leading-6 text-gray-900 font-bold"> 楽しかったこと③</dt>
+                            <dd class="mt-1 leading-6 text-gray-700 sm:col-span-2 sm:mt-0">{{Str::limit($diary->note02, 100,$end='...')}}</dd>
+                        </div>
+                    </dl>
+                </div>
+                <div class="flex justify-center" relative>
+                    <button onclick="history.back()" class="mt-3 mr-4 shadow bg-gray-500 hover:bg-gray-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" type="button">{{ __('戻る') }}</button>
+                    <button onclick="location.href='/diary/edit/{{ $diary->id }}'" class="mt-3 mr-2 shadow bg-yellow-500 hover:bg-yellow-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">変更する</button>
+                </div>
+                <div class="flex justify-end mt-6">
+                    <form action="/diary/remove/{{ $diary->id }}" method="POST">
+                        @csrf
+                        @method('delete')
+                        <button type="submit" class="mt-4 mr-4 shadow bg-red-500 hover:bg-red-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">削除</button>
+                    </form>
+                </div>
             </div>
 
             <script>

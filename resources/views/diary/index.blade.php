@@ -92,15 +92,15 @@
 
                 <div class="w-full md:w-1/2 md:pr-32 order-1 md:order-1">
                     <div class="max-w-md md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 ">
-                        <button onclick="location.href='/diary/new/'" class="text-base shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded my-4 md:my-12">日記を書く</button>
-                        <!-- <p class="font-bold my-4 md:my-12">日記を書く</p> -->
-                        <p class="font-bold my-4">キーワード検索</p>
+                        <button onclick="location.href='/diary/new/'" class="text-base shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded my-4 md:my-10">日記を書く</button>
                         <form action="{{ route('diary') }}">
-                            <div class="col-span-6 sm:col-span-3 p-2 w-48">
-                                <input type="text" name="note" id="note" value="{{ $note }}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
-                            </div>
-                            <div class="col-span-6 sm:col-span-3 p-2 w-48 relative">
-                                <button type="submit" class="bottom-2 mr-2 shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">検索</button>
+                            <div class="flex items-center md:flex-col">
+                                <div class="col-span-6 sm:col-span-3 w-48 relative">
+                                    <input type="text" name="note" id="note" value="{{ $note }}" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md" placeholder="キーワード検索">
+                                </div>
+                                <div class="col-span-6 sm:col-span-3 py-2 w-48 relative ml-2 sm:mt-0">
+                                    <button type="submit" class="bottom-2 mr-2 shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-1 px-4 rounded">検索</button>
+                                </div>
                             </div>
                         </form>
                         <!-- <ul class="flex flex-wrap justify-between flex-col">
@@ -112,7 +112,7 @@
                 <div class="w-full md:w-1/2 order-3 md:order-2">
                     <!-- <div class="max-w-md leading-loose tracking-tight"> -->
                     <div class="leading-loose tracking-tight">
-                        <h1 class="font-bold my-12">日記の一覧</h1>
+                        <h1 class="font-bold my-10">日記の一覧</h1>
                         <p class="font-bold my-4">楽しかったできごと</p>
                         @foreach($diaries as $diary)
                         <h2 class="text-2xl font-medium  title-font mb-2">{{Carbon\Carbon::parse($diary->date)->format('Y年n月j日')}}</h2>
