@@ -35,12 +35,20 @@ class DiaryController extends Controller
     {
         $diary = Diary::find($id);
 
+        if (!$diary) {
+            return abort(404);
+        }
+
         return view('diary.detail', ['diary' => $diary]);
     }
 
     public function edit($id)
     {
         $diary = Diary::find($id);
+
+        if (!$diary) {
+            return abort(404);
+        }
 
         return view('diary.edit', ['diary' => $diary]);
     }
