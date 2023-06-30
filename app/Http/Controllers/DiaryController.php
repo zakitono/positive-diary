@@ -7,6 +7,7 @@ use App\Http\Requests\DiaryRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class DiaryController extends Controller
 {
@@ -17,7 +18,7 @@ class DiaryController extends Controller
         // return view('diary.index', ['diaries' => $diaries]);
 
         $input = $request->only('note', 'note01', 'note02');
-        $diaries = Diary::search($input)->orderBy('id', 'desc')->paginate(10);
+        $diaries = Auth::user()->diaries()->search($input)->orderBy('id', 'desc')->paginate(10);
 
         return view(
             'diary.index',
@@ -53,6 +54,7 @@ class DiaryController extends Controller
             $diary->note = $request->input('note');
             $diary->note01 = $request->input('note01');
             $diary->note02 = $request->input('note02');
+            $diary->user_id = Auth::id();
             $diary->save();
             DB::commit();
             return redirect('diary')->with('status', '内容を更新しました。');
@@ -82,7 +84,7 @@ class DiaryController extends Controller
                 return redirect()->route('diary.new', ['id' => $request->input('id')])->withErrors($validated)->withInput();
             }
 
-            Diary::create($request->all());
+            Auth::user()->diaries()->create($request->all());
             return redirect('diary')->with('status', '日記を登録しました');
         } catch (\Exception $ex) {
             logger($ex->getMessage());

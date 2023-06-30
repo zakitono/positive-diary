@@ -40,4 +40,9 @@ class Diary extends Model
 
         return $query;
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
