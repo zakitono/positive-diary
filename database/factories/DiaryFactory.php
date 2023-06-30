@@ -21,6 +21,7 @@ class DiaryFactory extends Factory
             'note' => $this->faker->realText(),
             'note01' => $this->faker->realText(),
             'note02' => $this->faker->realText(),
+            'user_id' => $this->faker->randomElement([1, 2, 3]),
         ];
     }
 }
