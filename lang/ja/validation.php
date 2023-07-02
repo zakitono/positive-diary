@@ -156,6 +156,7 @@ return [
 
     'attributes' => [
         'password' => 'パスワード',
+        'current_password' => '現在のパスワード',
         'date' => '日付',
         'name' => '名前',
         'note' => '楽しかったこと①',
