@@ -14,7 +14,7 @@
                     <a href="{{ route('register') }}" class="ml-4 underline text-sm text-gray-600 :text-gray-400 hover:text-gray-900 :hover:text-gray-100 rounded-md">新規登録する</a>
                 </div>
                 <div class="flex flex justify-center mt-2">
-                    <a href="" class="underline text-sm text-gray-600 :text-gray-400 hover:text-gray-900 :hover:text-gray-100 rounded-md">ゲストログイン</a>
+                    <a href="{{ route('login.gest') }}" class="underline text-sm text-gray-600 :text-gray-400 hover:text-gray-900 :hover:text-gray-100 rounded-md">ゲストログイン</a>
                 </div>
                 @endif
                 @endauth
