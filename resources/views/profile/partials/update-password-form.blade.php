@@ -13,6 +13,9 @@
         @csrf
         @method('put')
 
+        @if (Auth::id() == 1)
+        <p class="text-red-600">※ゲストユーザーは、編集できません。</p>
+        @else
         <div>
             <x-input-label for="current_password" :value="__('Current Password')" />
             <x-text-input id="current_password" name="current_password" type="password" class="mt-1 block w-full" autocomplete="current-password" />
@@ -35,14 +38,9 @@
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 
             @if (session('status') === 'password-updated')
-                <p
-                    x-data="{ show: true }"
-                    x-show="show"
-                    x-transition
-                    x-init="setTimeout(() => show = false, 2000)"
-                    class="text-sm text-gray-600 :text-gray-400"
-                >{{ __('Saved.') }}</p>
+            <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)" class="text-sm text-gray-600 :text-gray-400">{{ __('Saved.') }}</p>
             @endif
         </div>
+        @endif
     </form>
 </section>
