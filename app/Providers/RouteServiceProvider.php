@@ -18,6 +18,7 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     // public const HOME = '/dashboard';
+    // 登録後の遷移先
     public const HOME = '/diary';
 
     /**
