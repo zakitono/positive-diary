@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth'])->prefix('diary')->group(function () {
-    Route::get('/', [DiaryController::class, 'index'])->name('diary')->middleware('verified');
+    Route::get('/', [DiaryController::class, 'index'])->name('diary');
     Route::get('/detail/{id}', [DiaryController::class, 'detail'])->name('diary.detail');
     Route::get('/edit/{id}', [DiaryController::class, 'edit'])->name('diary.edit');
     Route::get('/new', [DiaryController::class, 'new'])->name('diary.new');

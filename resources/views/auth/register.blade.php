@@ -2,6 +2,7 @@
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
+        <p class="text-red-600">※現在、登録は可能ですが、プロフィールの再設定などの変更がご自身ではできません。</p>
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
