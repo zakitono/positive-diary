@@ -92,7 +92,7 @@
 
                 <div class="w-full md:w-1/2 md:pr-32 order-1 md:order-1">
                     <div class="max-w-md md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 ">
-                        <button onclick="location.href='/diary/new/'" class="text-base shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded my-4 md:my-10">日記を書く</button>
+                        <button onclick="location.href='/diary/new'" class="text-base shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded my-4 md:my-10">日記を書く</button>
                         <form action="{{ route('diary') }}">
                             <div class="flex items-center md:flex-col">
                                 <div class="col-span-6 sm:col-span-3 w-48 relative">
