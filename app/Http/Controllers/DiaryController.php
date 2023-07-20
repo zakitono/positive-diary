@@ -34,8 +34,9 @@ class DiaryController extends Controller
     public function detail($id)
     {
         $diary = Diary::find($id);
+        $user = Auth::user();
 
-        if (!$diary) {
+        if (!$diary || !$user->diaries()->where('id', $diary->id)->exists()) {
             return abort(404);
         }
 
@@ -45,8 +46,9 @@ class DiaryController extends Controller
     public function edit($id)
     {
         $diary = Diary::find($id);
+        $user = Auth::user();
 
-        if (!$diary) {
+        if (!$diary || !$user->diaries()->where('id', $diary->id)->exists()) {
             return abort(404);
         }
 
