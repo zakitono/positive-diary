@@ -146,7 +146,6 @@
                             <button type="submit" class="mt-3 mr-2 shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">新規作成</button>
                         </div>
                     </div>
-
                 </div>
 
                 <script>
